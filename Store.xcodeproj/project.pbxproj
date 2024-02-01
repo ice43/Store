@@ -7,27 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD3177122B6B822D00649652 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3177112B6B822D00649652 /* MainViewController.swift */; };
+		CD3177142B6B84A200649652 /* PizzaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3177132B6B84A200649652 /* PizzaCell.swift */; };
 		CD4854DD2B6B7F380090720A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4854DC2B6B7F380090720A /* AppDelegate.swift */; };
 		CD4854DF2B6B7F380090720A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4854DE2B6B7F380090720A /* SceneDelegate.swift */; };
-		CD4854E12B6B7F380090720A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4854E02B6B7F380090720A /* ViewController.swift */; };
 		CD4854E42B6B7F380090720A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4854E22B6B7F380090720A /* Main.storyboard */; };
 		CD4854E62B6B7F390090720A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD4854E52B6B7F390090720A /* Assets.xcassets */; };
 		CD4854E92B6B7F390090720A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4854E72B6B7F390090720A /* LaunchScreen.storyboard */; };
 		CD4854F82B6B808F0090720A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4854F72B6B808F0090720A /* NetworkManager.swift */; };
-		CD4854FB2B6B80B20090720A /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4854FA2B6B80B20090720A /* Device.swift */; };
+		CD4854FB2B6B80B20090720A /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4854FA2B6B80B20090720A /* Pizza.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD3177112B6B822D00649652 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CD3177132B6B84A200649652 /* PizzaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCell.swift; sourceTree = "<group>"; };
 		CD4854D92B6B7F380090720A /* Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Store.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4854DC2B6B7F380090720A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD4854DE2B6B7F380090720A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CD4854E02B6B7F380090720A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CD4854E32B6B7F380090720A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD4854E52B6B7F390090720A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD4854E82B6B7F390090720A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD4854EA2B6B7F390090720A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD4854F72B6B808F0090720A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		CD4854FA2B6B80B20090720A /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		CD4854FA2B6B80B20090720A /* Pizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +103,7 @@
 		CD4854F32B6B7FFE0090720A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CD4854E02B6B7F380090720A /* ViewController.swift */,
+				CD3177112B6B822D00649652 /* MainViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -117,6 +119,7 @@
 		CD4854F52B6B80190090720A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CD3177132B6B84A200649652 /* PizzaCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -124,7 +127,7 @@
 		CD4854F62B6B802D0090720A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CD4854FA2B6B80B20090720A /* Device.swift */,
+				CD4854FA2B6B80B20090720A /* Pizza.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,10 +204,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD4854F82B6B808F0090720A /* NetworkManager.swift in Sources */,
-				CD4854E12B6B7F380090720A /* ViewController.swift in Sources */,
 				CD4854DD2B6B7F380090720A /* AppDelegate.swift in Sources */,
+				CD3177122B6B822D00649652 /* MainViewController.swift in Sources */,
 				CD4854DF2B6B7F380090720A /* SceneDelegate.swift in Sources */,
-				CD4854FB2B6B80B20090720A /* Device.swift in Sources */,
+				CD4854FB2B6B80B20090720A /* Pizza.swift in Sources */,
+				CD3177142B6B84A200649652 /* PizzaCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
