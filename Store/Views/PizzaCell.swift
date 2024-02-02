@@ -22,9 +22,14 @@ final class PizzaCell: UICollectionViewCell {
         sizePizza.text = pizza.data.size
         descriptionPizza.text = pizza.data.description
         addButton.setTitle("+ \(pizza.data.price)", for: .normal)
-        
-        networkManager.fetchImage(from: pizza.data.image) { [unowned self] imageData in
-            imagePizza.image = UIImage(data: imageData)
+    
+        networkManager.fetchImage(from: pizza.data.image) { [unowned self] result in
+            switch result {
+            case .success(let imageData):
+                imagePizza.image = UIImage(data: imageData)
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }

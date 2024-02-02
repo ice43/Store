@@ -14,19 +14,30 @@ final class MainViewController: HorizontalPeekingPagesCollectionViewController {
     
     override func loadView() {
         super.loadView()
-        fetchDevices()
+        fetchPizzas()
     }
 
 }
 
 // MARK: - UICollectionViewDataSource
 extension MainViewController {
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        
         return pizzas.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pizzaCell", for: indexPath)
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "pizzaCell",
+            for: indexPath
+        )
         guard let cell = cell as? PizzaCell else { return UICollectionViewCell() }
         let pizza = pizzas[indexPath.item]
         
@@ -42,32 +53,32 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        CGSize(width: Int(view.window?.windowScene?.screen.bounds.width ?? 0) - 47, height: 500)
+        CGSize(
+            width: Int(view.window?.windowScene?.screen.bounds.width ?? 0) - 47,
+            height: 500
+        )
     }
 }
 
 // MARK: - Networking
 extension MainViewController {
-    private func fetchDevices() {
-        guard let url = URL(string: "https://ice43.github.io/data_json.json") else { return }
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+    private func fetchPizzas() {
+        guard let url = URL(string: "https://ice43.github.io/data_json.json") else {
+            return
+        }
+        
+        networkManager.fetch([Pizza].self, from: url) { [weak self] result in
             guard let self else { return }
-            guard let data else {
-                print(error ?? "no error description")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            
-            do {
-                pizzas = try decoder.decode([Pizza].self, from: data)
+            switch result {
+            case .success(let pizzas):
+                self.pizzas = pizzas
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
-            } catch let error {
+            case .failure(let error):
                 print(error)
             }
-        }.resume()
+        }
     }
 }
 
