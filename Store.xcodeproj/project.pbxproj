@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CD3177122B6B822D00649652 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3177112B6B822D00649652 /* MainViewController.swift */; };
 		CD3177142B6B84A200649652 /* PizzaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3177132B6B84A200649652 /* PizzaCell.swift */; };
+		CD444CA32B6CE6E100AB2283 /* HorizontalPeekingPagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD444CA22B6CE6E100AB2283 /* HorizontalPeekingPagesCollectionViewController.swift */; };
 		CD4854DD2B6B7F380090720A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4854DC2B6B7F380090720A /* AppDelegate.swift */; };
 		CD4854DF2B6B7F380090720A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4854DE2B6B7F380090720A /* SceneDelegate.swift */; };
 		CD4854E42B6B7F380090720A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4854E22B6B7F380090720A /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		CD3177112B6B822D00649652 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CD3177132B6B84A200649652 /* PizzaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCell.swift; sourceTree = "<group>"; };
+		CD444CA22B6CE6E100AB2283 /* HorizontalPeekingPagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPeekingPagesCollectionViewController.swift; sourceTree = "<group>"; };
 		CD4854D92B6B7F380090720A /* Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Store.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4854DC2B6B7F380090720A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD4854DE2B6B7F380090720A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				CD3177112B6B822D00649652 /* MainViewController.swift */,
+				CD444CA22B6CE6E100AB2283 /* HorizontalPeekingPagesCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				CD4854DD2B6B7F380090720A /* AppDelegate.swift in Sources */,
 				CD3177122B6B822D00649652 /* MainViewController.swift in Sources */,
 				CD4854DF2B6B7F380090720A /* SceneDelegate.swift in Sources */,
+				CD444CA32B6CE6E100AB2283 /* HorizontalPeekingPagesCollectionViewController.swift in Sources */,
 				CD4854FB2B6B80B20090720A /* Pizza.swift in Sources */,
 				CD3177142B6B84A200649652 /* PizzaCell.swift in Sources */,
 			);
@@ -363,7 +367,7 @@
 				DEVELOPMENT_TEAM = V3YK82Q5NN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Store/App/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Store;
+				INFOPLIST_KEY_CFBundleDisplayName = Pizza;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -396,7 +400,7 @@
 				DEVELOPMENT_TEAM = V3YK82Q5NN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Store/App/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Store;
+				INFOPLIST_KEY_CFBundleDisplayName = Pizza;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

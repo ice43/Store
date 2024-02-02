@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainViewController: UICollectionViewController {
+final class MainViewController: HorizontalPeekingPagesCollectionViewController {
     
     private var pizzas: [Pizza] = []
     private let networkManager = NetworkManager.shared
@@ -17,12 +17,10 @@ final class MainViewController: UICollectionViewController {
         fetchDevices()
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+}
 
-    }
-
+// MARK: - UICollectionViewDataSource
+extension MainViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pizzas.count
     }
@@ -31,17 +29,26 @@ final class MainViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pizzaCell", for: indexPath)
         guard let cell = cell as? PizzaCell else { return UICollectionViewCell() }
         let pizza = pizzas[indexPath.item]
-    
+        
         cell.configure(with: pizza)
         return cell
     }
-    
+}
 
+// MARK: - UICollectionViewDelegateFlowLayout
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        CGSize(width: Int(view.window?.windowScene?.screen.bounds.width ?? 0) - 47, height: 500)
+    }
 }
 
 // MARK: - Networking
 extension MainViewController {
-    func fetchDevices() {
+    private func fetchDevices() {
         guard let url = URL(string: "https://ice43.github.io/data_json.json") else { return }
         URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
             guard let self else { return }
@@ -63,3 +70,5 @@ extension MainViewController {
         }.resume()
     }
 }
+
+

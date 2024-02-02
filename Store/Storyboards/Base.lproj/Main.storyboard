@@ -12,20 +12,19 @@
         <scene sceneID="G0L-hy-l1o">
             <objects>
                 <collectionViewController id="iwO-1J-2hj" customClass="MainViewController" customModule="Store" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="VBM-V3-vGr">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="VBM-V3-vGr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="LhP-xw-j28">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="LhP-xw-j28">
                             <size key="itemSize" width="300" height="500"/>
-                            <size key="estimatedItemSize" width="300" height="500"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="35" minY="0.0" maxX="35" maxY="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pizzaCell" id="pYa-oD-y7Q" customClass="PizzaCell" customModule="Store" customModuleProvider="target">
-                                <rect key="frame" x="35" y="176" width="300" height="500"/>
+                                <rect key="frame" x="0.0" y="105" width="300" height="500"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="q3K-Hm-Tt8">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="500"/>
@@ -40,11 +39,6 @@
                                                         <constraint firstAttribute="width" secondItem="yJN-LK-OB4" secondAttribute="height" multiplier="1:1" id="err-p7-lh3"/>
                                                         <constraint firstAttribute="width" constant="240" id="grO-WD-I1l"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <integer key="value" value="35"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEo-mw-Jiy">
                                                     <rect key="frame" x="97.666666666666671" y="251.00000000000003" width="45.000000000000014" height="20.333333333333343"/>
@@ -52,7 +46,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJC-IH-ofi">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BJC-IH-ofi">
                                                     <rect key="frame" x="106.33333333333334" y="282.33333333333331" width="27.333333333333343" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -70,21 +64,32 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAI-wM-AJk">
-                                            <rect key="frame" x="129.33333333333334" y="433.66666666666669" width="41.333333333333343" height="20.333333333333314"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6p-54-PYc">
+                                            <rect key="frame" x="106.66666666666669" y="426" width="87" height="36"/>
+                                            <color key="backgroundColor" red="0.92941176889999999" green="0.45098042490000001" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="eaH-mb-os9"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="87" id="rq5-d9-aD7"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Add">
+                                                <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </buttonConfiguration>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.93075286077730579" green="0.93075286077730579" blue="0.93075286077730579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="y6p-54-PYc" secondAttribute="bottom" constant="38" id="6Aj-Px-zAp"/>
                                         <constraint firstItem="rCT-7n-d8A" firstAttribute="leading" secondItem="q3K-Hm-Tt8" secondAttribute="leading" constant="30" id="CKW-yU-pwo"/>
+                                        <constraint firstItem="y6p-54-PYc" firstAttribute="centerX" secondItem="q3K-Hm-Tt8" secondAttribute="centerX" id="Chk-9h-mg5"/>
                                         <constraint firstItem="rCT-7n-d8A" firstAttribute="top" secondItem="q3K-Hm-Tt8" secondAttribute="top" constant="30" id="QXp-nA-Nya"/>
-                                        <constraint firstItem="YAI-wM-AJk" firstAttribute="leading" secondItem="q3K-Hm-Tt8" secondAttribute="leading" constant="129.33333333333334" id="S6H-3T-Tr2"/>
-                                        <constraint firstItem="YAI-wM-AJk" firstAttribute="centerX" secondItem="q3K-Hm-Tt8" secondAttribute="centerX" id="YUR-BM-HgX"/>
                                         <constraint firstAttribute="trailing" secondItem="rCT-7n-d8A" secondAttribute="trailing" constant="30" id="pKX-Fn-Jle"/>
-                                        <constraint firstAttribute="bottom" secondItem="YAI-wM-AJk" secondAttribute="bottom" constant="46" id="sjh-NX-NOC"/>
                                         <constraint firstItem="rCT-7n-d8A" firstAttribute="centerX" secondItem="q3K-Hm-Tt8" secondAttribute="centerX" id="tLB-Wu-4gs"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
@@ -94,10 +99,10 @@
                                     </userDefinedRuntimeAttributes>
                                 </collectionViewCellContentView>
                                 <connections>
+                                    <outlet property="addButton" destination="y6p-54-PYc" id="Fkj-Pv-Bk2"/>
                                     <outlet property="descriptionPizza" destination="8RQ-1Z-SXQ" id="HBC-0j-22z"/>
                                     <outlet property="imagePizza" destination="yJN-LK-OB4" id="cK8-az-pAx"/>
                                     <outlet property="namePizza" destination="tEo-mw-Jiy" id="NAO-ve-ky4"/>
-                                    <outlet property="pricePizza" destination="YAI-wM-AJk" id="mNZ-4n-fFY"/>
                                     <outlet property="sizePizza" destination="BJC-IH-ofi" id="xdj-ip-2sh"/>
                                 </connections>
                             </collectionViewCell>
@@ -107,6 +112,8 @@
                             <outlet property="delegate" destination="iwO-1J-2hj" id="ZL2-ez-PoG"/>
                         </connections>
                     </collectionView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddK-i7-Z8z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
