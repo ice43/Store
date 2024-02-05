@@ -11,44 +11,43 @@ import UIKit
 class HorizontalPeekingPagesCollectionViewController: UICollectionViewController {
     private var indexOfCellBeforeDragging = 0
     private var collectionViewFlowLayout: UICollectionViewFlowLayout {
-        return collectionViewLayout as! UICollectionViewFlowLayout
+        return collectionViewLayout as? UICollectionViewFlowLayout ?? UICollectionViewFlowLayout()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         collectionViewFlowLayout.minimumLineSpacing = 15
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
         configureCollectionViewLayoutItemSize()
     }
 
-    func calculateSectionInset() -> CGFloat {
-        return 20
-    }
-
     private func configureCollectionViewLayoutItemSize() {
-        let inset: CGFloat = calculateSectionInset()
+        let inset: CGFloat = 20
         collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
 
         collectionViewFlowLayout.itemSize = CGSize(
-            width: collectionViewLayout.collectionView!.frame.size.width - inset * 2,
-            height: collectionViewLayout.collectionView!.frame.size.height
+            width: (collectionViewLayout.collectionView?.frame.size.width ?? 0) - inset * 2,
+            height: collectionViewLayout.collectionView?.frame.size.height ?? 0
         )
     }
 
     private func indexOfMajorCell() -> Int {
         let itemWidth = collectionViewFlowLayout.itemSize.width
-        let proportionalOffset = collectionViewLayout.collectionView!.contentOffset.x / itemWidth
+        let proportionalOffset = (collectionViewLayout.collectionView?.contentOffset.x ?? 0) / itemWidth
         let index = Int(round(proportionalOffset))
         let numberOfItems = collectionView.numberOfItems(inSection: 0)
         let safeIndex = max(0, min(numberOfItems - 1, index))
         return safeIndex
     }
 
+   
+}
+
+// MARK: - Editing ScrollView
+extension HorizontalPeekingPagesCollectionViewController {
     override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         indexOfCellBeforeDragging = indexOfMajorCell()
     }
