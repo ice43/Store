@@ -18,22 +18,22 @@ struct Pizza: Decodable {
     
     init(pizzaDetails: [String: Any]) {
         name = pizzaDetails["name"] as? String ?? ""
-        data = Details(pizzaDetails: pizzaDetails["data"] as? [String : Any] ?? [:])
+        data = Details(pizzaDetails: pizzaDetails["data"] as? [String: Any] ?? [:])
     }
     
-//    static func getPizzas(from value: Any) -> [Pizza] {
-//        guard let pizzasDetails = value as? [[String: Any]] else { return [] }
-//        return pizzasDetails.map { Pizza(pizzaDetails: $0) }
-//    }
+    static func getPizzas(from value: Any) -> [Pizza] {
+        guard let pizzasDetails = value as? [[String: Any]] else { return [] }
+        return pizzasDetails.map { Pizza(pizzaDetails: $0) }
+    }
 }
 
 struct Details: Decodable {
-    var image: URL
+    var image: String
     var size: String
     var description: String
     var price: String
     
-    init(image: URL, size: String, description: String, price: String) {
+    init(image: String, size: String, description: String, price: String) {
         self.image = image
         self.size = size
         self.description = description
@@ -41,7 +41,7 @@ struct Details: Decodable {
     }
     
     init(pizzaDetails: [String: Any]) {
-        image = pizzaDetails["image"] as? URL ?? URL(fileURLWithPath: "")
+        image = pizzaDetails["image"] as? String ?? ""
         size = pizzaDetails["size"] as? String ?? ""
         description = pizzaDetails["description"] as? String ?? ""
         price = pizzaDetails["price"] as? String ?? ""

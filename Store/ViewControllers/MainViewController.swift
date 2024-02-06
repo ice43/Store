@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 
 final class MainViewController: HorizontalPeekingPagesCollectionViewController {
     
@@ -15,10 +14,19 @@ final class MainViewController: HorizontalPeekingPagesCollectionViewController {
     
     override func loadView() {
         super.loadView()
-//        fetchPizzas()
-        manualFetchPizzas()
+        fetchPizzas()
     }
-
+    
+    private func showAlert(withTitle title: String, andMessage message: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -62,56 +70,25 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - Networking
+// MARK: - Manual networking with Alamofire
 extension MainViewController {
     private func fetchPizzas() {
         guard let url = URL(string: "https://ice43.github.io/data_json.json") else {
             return
         }
         
-        networkManager.fetch([Pizza].self, from: url) { [weak self] result in
-            guard let self else { return }
+        networkManager.fetchPizzas(from: url) { [unowned self] result in
             switch result {
             case .success(let pizzas):
                 self.pizzas = pizzas
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
+                collectionView.reloadData()
             case .failure(let error):
-                print(error)
+                showAlert(
+                    withTitle: "Oops...",
+                    andMessage: error.localizedDescription
+                )
             }
         }
-    }
-}
-
-// MARK: - Manual parsing with Alamofire in VC
-extension MainViewController {
-    private func manualFetchPizzas() {
-//        guard let urlError = URL(string: "https://dogstudio.co/404/") else {
-//            return
-//        }
-        
-        AF.request("https://ice43.github.io/data_json.json")
-            .validate()
-            .responseJSON { [unowned self] dataResponse in
-                switch dataResponse.result {
-                case .success(let value):
-                    guard let pizzasJSON = value as? [[String: Any]] else { return }
-                    
-
-                    for pizza in pizzasJSON {
-                        let pizza = Pizza(pizzaDetails: pizza)
-                        pizzas.append(pizza)
-                        
-                        print(pizza)
-                    }
-            
-                    collectionView.reloadData()
-                    
-                case .failure(let error):
-                    print(error)
-                }
-            }
     }
 }
 

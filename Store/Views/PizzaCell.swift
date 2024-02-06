@@ -23,7 +23,7 @@ final class PizzaCell: UICollectionViewCell {
         descriptionPizza.text = pizza.data.description
         addButton.setTitle("+ \(pizza.data.price)", for: .normal)
     
-        networkManager.fetchImage(from: pizza.data.image) { [unowned self] result in
+        networkManager.fetchData(from: pizza.data.image) { [unowned self] result in
             switch result {
             case .success(let imageData):
                 imagePizza.image = UIImage(data: imageData)
