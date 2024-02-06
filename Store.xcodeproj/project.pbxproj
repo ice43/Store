@@ -17,6 +17,7 @@
 		CD4854E92B6B7F390090720A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4854E72B6B7F390090720A /* LaunchScreen.storyboard */; };
 		CD4854F82B6B808F0090720A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4854F72B6B808F0090720A /* NetworkManager.swift */; };
 		CD4854FB2B6B80B20090720A /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4854FA2B6B80B20090720A /* Pizza.swift */; };
+		CD66C3442B71221A0016E23C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CD66C3432B71221A0016E23C /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD66C3442B71221A0016E23C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +153,9 @@
 			dependencies = (
 			);
 			name = Store;
+			packageProductDependencies = (
+				CD66C3432B71221A0016E23C /* Alamofire */,
+			);
 			productName = Store;
 			productReference = CD4854D92B6B7F380090720A /* Store.app */;
 			productType = "com.apple.product-type.application";
@@ -179,6 +184,10 @@
 				Base,
 			);
 			mainGroup = CD4854D02B6B7F380090720A;
+			packageReferences = (
+				CD66C3422B71221A0016E23C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CDAC7A0A2B724FAE0006B040 /* XCRemoteSwiftPackageReference "ObjectMapper" */,
+			);
 			productRefGroup = CD4854DA2B6B7F380090720A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -445,6 +454,33 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CD66C3422B71221A0016E23C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.0;
+			};
+		};
+		CDAC7A0A2B724FAE0006B040 /* XCRemoteSwiftPackageReference "ObjectMapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tristanhimmelman/ObjectMapper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CD66C3432B71221A0016E23C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD66C3422B71221A0016E23C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CD4854D12B6B7F380090720A /* Project object */;
 }

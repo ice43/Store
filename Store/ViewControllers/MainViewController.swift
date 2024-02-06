@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 final class MainViewController: HorizontalPeekingPagesCollectionViewController {
     
@@ -14,7 +15,8 @@ final class MainViewController: HorizontalPeekingPagesCollectionViewController {
     
     override func loadView() {
         super.loadView()
-        fetchPizzas()
+//        fetchPizzas()
+        manualFetchPizzas()
     }
 
 }
@@ -82,4 +84,34 @@ extension MainViewController {
     }
 }
 
+// MARK: - Manual parsing with Alamofire in VC
+extension MainViewController {
+    private func manualFetchPizzas() {
+//        guard let urlError = URL(string: "https://dogstudio.co/404/") else {
+//            return
+//        }
+        
+        AF.request("https://ice43.github.io/data_json.json")
+            .validate()
+            .responseJSON { [unowned self] dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    guard let pizzasJSON = value as? [[String: Any]] else { return }
+                    
+
+                    for pizza in pizzasJSON {
+                        let pizza = Pizza(pizzaDetails: pizza)
+                        pizzas.append(pizza)
+                        
+                        print(pizza)
+                    }
+            
+                    collectionView.reloadData()
+                    
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+}
 
