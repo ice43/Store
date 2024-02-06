@@ -12,25 +12,11 @@ final class NetworkManager {
     static let shared = NetworkManager()
     
     private init() {}
-    
-//    func fetchImage(
-//        from url: URL,
-//        completion: @escaping (Result<Data, NetworkError>) -> Void
-//    ) {
-//        
-//        DispatchQueue.global().async {
-//            guard let imageData = try? Data(contentsOf: url) else {
-//                completion(.failure(.noData))
-//                return
-//            }
-//            DispatchQueue.main.async {
-//                completion(.success(imageData))
-//            }
-//        }
-//    }
-    
-    
-    func fetchPizzas(from url: URL, completion: @escaping (Result<[Pizza], AFError>) -> Void) {
+
+    func fetchPizzas(
+        from url: URL,
+        completion: @escaping (Result<[Pizza], AFError>) -> Void
+    ) {
         AF.request(url)
             .validate()
             .responseJSON { dataResponse in
@@ -44,7 +30,10 @@ final class NetworkManager {
             }
     }
     
-    func fetchData(from url: String, completion: @escaping (Result<Data, AFError>) -> Void) {
+    func fetchData(
+        from url: String,
+        completion: @escaping (Result<Data, AFError>) -> Void
+    ) {
         AF.request(url)
             .validate()
             .responseData { dataResponse in
